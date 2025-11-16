@@ -14,9 +14,8 @@ class Sprite {
 
         ~Sprite() {
             UnloadTexture(texture);
-            std::cout << "Sprite Destructor\n";
         }
-        Sprite() : x(0), y(0), width(1), height(1) {std::cout << "Sprite Constructor\n";}
+        Sprite() : x(0), y(0), width(1), height(1) {}
         Sprite(float _x, float _y, int w, int h, std::string f_name) {
             x = _x;
             y = _y;
@@ -24,7 +23,6 @@ class Sprite {
             height = h;
             image_path = f_name;
             LoadTextures();
-            std::cout << "Sprite Constructor\n";
         }
         Sprite(const Sprite& other) {
         // Copy logic here, e.g., deep copy of dynamic memory
@@ -35,7 +33,6 @@ class Sprite {
         image_path = other.image_path;
         
         LoadTextures();
-        std::cout << "Sprite Copy Constructor\n";
     }   
         void LoadTextures() {
             Image i = LoadImage(image_path.c_str());
@@ -46,4 +43,5 @@ class Sprite {
         void Render(Color tint = WHITE) {
             DrawTexture(texture, x, y, tint);
         }
+
 };
